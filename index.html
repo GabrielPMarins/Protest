@@ -109,6 +109,30 @@ input[type=search]{min-width:200px}
 .multi-list .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .multi-list .qt{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
 
+/* barra de filtros recolhível (telas pequenas) */
+.filtros-toggle{display:none}
+.filtros-fechar{display:none}
+@media(max-width:900px){
+  .filtros-toggle{display:flex;width:100%;align-items:center;gap:9px;background:var(--surface);
+    border:0;border-bottom:1px solid var(--line);padding:11px 20px;font-size:13.5px;font-weight:800;
+    color:var(--ink);cursor:pointer;text-align:left}
+  .filtros-toggle .ft-txt{flex:0 0 auto}
+  .filtros-toggle .ft-badge{background:var(--brand);color:#fff;border-radius:999px;font-size:10.5px;
+    font-weight:800;padding:1px 6px;font-family:var(--mono);flex:0 0 auto}
+  .filtros-toggle .ft-resumo{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    font-size:12px;font-weight:600;color:var(--muted);font-family:var(--mono)}
+  .filtros-toggle .ft-cev{color:var(--muted);font-size:10px;transition:transform .18s}
+  .filtros-toggle[aria-expanded="true"] .ft-cev{transform:rotate(180deg)}
+  .filtros-corpo{display:none}
+  .filters.aberto{position:static}
+  .filters.aberto .filtros-corpo{display:block;border-top:1px solid var(--line)}
+  .filters.aberto .filtros-fechar{display:block;padding:0 20px 14px}
+  .filters.aberto .filtros-fechar .btn{width:100%;justify-content:center}
+  .filters-in{padding-top:14px}
+  .filters .right{margin-left:0;width:100%}
+  .filters .right .btn{width:100%;justify-content:center}
+}
+
 /* ============ LAYOUT ============ */
 main{padding:22px 0 60px}
 .panel{display:none}
@@ -322,7 +346,14 @@ footer .madeby img{height:19px;width:auto;display:block}
   </div>
 </nav>
 
-<div class="filters">
+<div class="filters" id="barraFiltros">
+  <button class="filtros-toggle" id="btnFiltros" type="button" aria-expanded="false" aria-controls="filtrosCorpo">
+    <span class="ft-txt">Filtros</span>
+    <span class="ft-badge" id="ftBadge" hidden>0</span>
+    <span class="ft-resumo" id="ftResumo"></span>
+    <span class="ft-cev" aria-hidden="true">▼</span>
+  </button>
+  <div class="filtros-corpo" id="filtrosCorpo">
   <div class="filters-in">
     <div class="fgroup">
       <label for="fPreset">Período</label>
@@ -361,6 +392,8 @@ footer .madeby img{height:19px;width:auto;display:block}
     <div class="right"><button class="btn btn-sm" id="btnClear" type="button">Limpar filtros</button></div>
   </div>
   <div class="activefilters" id="activeFilters"></div>
+  <div class="filtros-fechar"><button class="btn btn-sm btn-primary" id="btnFecharFiltros" type="button">Ver o painel</button></div>
+  </div>
 </div>
 
 <main>
@@ -1480,6 +1513,13 @@ function render(){
     +(S.origens.length<=2?S.origens.map(esc).join(' e '):S.origens.length+' selecionadas')+'</strong>');
   document.getElementById('activeFilters').innerHTML=af.join(' &nbsp;·&nbsp; ');
 
+  /* resumo compacto para o botão de filtros no mobile */
+  var nAtivos=S.canais.length+S.campanhas.length+S.origens.length
+    +(S.preset!=='all'?1:0)+(S.cmpModo!=='auto'?1:0);
+  var badge=document.getElementById('ftBadge');
+  if(badge){ badge.textContent=nAtivos; badge.hidden=(nAtivos===0); }
+  setTxt('ftResumo',dtBR(P.de)+' – '+dtBR(P.ate));
+
   /* --- KPIs mídia --- */
   document.getElementById('kpiMidia').innerHTML=
      kpi({t:'Investimento',h:'invest',v:brl(m.invest),d:dlt(m.invest,p.invest)})
@@ -1620,11 +1660,11 @@ function render(){
     +kpi({t:'CAC retroativo · safra madura',h:'cacretro',v:brl(mMad.cacGeral),
           s:n0(mMad.ganhos)+(mMad.ganhos===1?' contrato de ':' contratos de ')+n0(mMad.leads)+' leads · '+brl(mMad.investTotal)+' investidos na safra'})
     +kpi({t:'LTV : CAC projetado',h:'ltvcac',v:nX(m.ltvCac),u:'x',
-          s:'realizado '+nX(m.ltvCacReal)+'x · referência 3x'})
-    +kpi({t:'Payback projetado',h:'paybackcac',v:(isFinite(m.payback)?n1(m.payback):'—'),u:' meses',
-          s:'realizado '+emMeses(m.paybackCac)+' · margem '+brl(m.margemMes)+'/mês'})
+          s:'LTV '+brl(m.ltv)+' ÷ CAC projetado '+brl(m.cacProj)+' · referência 3x'})
+    +kpi({t:'Payback projetado',h:'paybackcac',v:emMeses(m.payback),
+          s:'margem de '+brl(m.margemMes)+'/mês · + '+n1(S.ciclo/30.4)+' meses de ciclo'})
     +kpi({t:'ROI financeiro',h:'roifin',v:pct(m.roiTotal,0),
-          s:'sobre '+brl(m.investTotal)+' de custo total · ROAS '+(isFinite(m.roasTotal)?n1(m.roasTotal)+'x':'—')});
+          s:'sobre '+brl(m.investTotal)+(m.temCustoFixo?' de custo total':' investidos em mídia')+' · ROAS '+nX(m.roasTotal)+'x'});
 
   /* ---- as duas lentes ---- */
   setTxt('lenteMaduraPer',temMadura?('Leads que entraram entre '+dtBR(P.de)+' e '+dtBR(corte)):'O período filtrado é menor que o ciclo de venda — ainda não há safra madura.');
@@ -2254,9 +2294,24 @@ function mostraPainel(nome){
   window.scrollTo({top:0,behavior:'smooth'});
   Object.keys(charts).forEach(function(k){try{charts[k].resize();}catch(e){}});
 }
+function ehMobile(){return window.matchMedia('(max-width:900px)').matches;}
+function abreFiltros(abrir){
+  var bar=document.getElementById('barraFiltros'), bt=document.getElementById('btnFiltros');
+  if(!bar||!bt) return;
+  bar.classList.toggle('aberto',!!abrir);
+  bt.setAttribute('aria-expanded',abrir?'true':'false');
+  if(abrir) window.scrollTo({top:0,behavior:'smooth'});
+  Object.keys(charts).forEach(function(k){try{charts[k].resize();}catch(e){}});
+}
+function initFiltrosMobile(){
+  var bt=document.getElementById('btnFiltros'), fc=document.getElementById('btnFecharFiltros');
+  if(bt) bt.onclick=function(){abreFiltros(bt.getAttribute('aria-expanded')!=='true');};
+  if(fc) fc.onclick=function(){abreFiltros(false);};
+  window.addEventListener('resize',function(){if(!ehMobile())abreFiltros(false);});
+}
 function initNav(){
   document.querySelectorAll('.nav button').forEach(function(b){
-    b.onclick=function(){mostraPainel(b.dataset.panel);};});
+    b.onclick=function(){abreFiltros(false);mostraPainel(b.dataset.panel);};});
   document.getElementById('btnGoUpload').onclick=function(){mostraPainel('dados');};
   var voltar=document.getElementById('btnVoltar');
   if(voltar) voltar.onclick=function(){mostraPainel('ceo');};
@@ -2621,7 +2676,7 @@ function initExport(){
 }
 
 /* ---------- boot ---------- */
-seedColors();initNav();initFiltros();initUpload();initExport();cobertura();render();initPremissas();
+seedColors();initNav();initFiltrosMobile();initFiltros();initUpload();initExport();cobertura();render();initPremissas();
 window.addEventListener('resize',function(){Object.keys(charts).forEach(function(k){try{charts[k].resize();}catch(e){}});});
 })();
 

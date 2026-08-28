@@ -7,8 +7,8 @@ equipe de Marketing. Arquivo único em HTML, funciona offline, sem instalação 
 |---|---|
 | **Arquivo** | `KPI_Protest.html` |
 | **Versão online** | https://claude.ai/code/artifact/f22fa973-b15c-40ad-8f31-479e16b3b179 |
-| **Período coberto** | 01/01/2026 a 21/08/2026 |
-| **Dados atualizados em** | 21/08/2026 |
+| **Período coberto** | 01/01/2026 a 28/08/2026 |
+| **Dados atualizados em** | 28/08/2026 |
 | **Feito por** | UM_digital |
 
 ---
@@ -193,6 +193,7 @@ sem recarregar a página.
 | Premissa | Valor atual | O que afeta |
 |---|---|---|
 | Ticket médio mensal | R$ 2.000 | Reserva do LTV quando não há contratos fechados |
+| Duração do contrato | 13 meses | O ano contratual da Protest inclui o 13º — 12 mensalidades + 1 |
 | Margem de contribuição | 16% | LTV e payback |
 | Duração do contrato | 12 meses | LTV |
 | Conversão esperada de MQL em venda | 10% | Vendas projetadas, CAC projetado, faturamento projetado |
@@ -223,11 +224,11 @@ O botão **Restaurar padrão** devolve todas as premissas aos valores originais.
 |---|---|
 | **Investimento em mídia** | Soma do valor gasto em Google Ads e Meta Ads |
 | **Investimento total** | Mídia + agência + ferramentas (só aparece com os custos fixos preenchidos) |
-| **Receita influenciada** | Valor anual dos contratos fechados com origem nas campanhas |
+| **Receita influenciada** | Valor anual dos contratos atribuídos às campanhas (mensalidade × 13 meses) — a lista está na aba Resultado comercial |
 | **Receita influenciada projetada** | Valor anual das propostas em aberto |
-| **ROAS financeiro** | Receita influenciada ÷ investimento |
+| **ROAS (sobre mídia)** | Receita influenciada ÷ investimento em mídia. Não considera agência nem ferramentas |
 | **ROI financeiro** | (Receita influenciada − investimento) ÷ investimento |
-| **CAC de marketing** | Investimento em mídia ÷ contratos fechados |
+| **CAC mídia** | Investimento em mídia ÷ contratos fechados |
 | **CAC geral** | Investimento total ÷ contratos fechados |
 | **CAC retroativo** | Investimento da safra madura ÷ contratos gerados por ela |
 | **CAC projetado** | Investimento ÷ (MQL × 10%) |
@@ -292,7 +293,7 @@ cobre todo o período. O painel sinaliza as duas janelas.
 
 ---
 
-## 12. Situação atual — 01/01/2026 a 21/08/2026
+## 12. Situação atual — 01/01/2026 a 28/08/2026
 
 Retrato do momento em que este documento foi escrito, sem os custos de agência e ferramentas.
 
@@ -300,49 +301,71 @@ Retrato do momento em que este documento foi escrito, sem os custos de agência 
 
 | | |
 |---|---|
-| Investimento em mídia | R$ 36.434 |
-| Leads (pessoas distintas) | 889 |
-| MQL (perfil A ou B) | 432 — 48,6% da base |
-| Oportunidades abertas | 98 |
-| Propostas | 44 |
-| CPL / CPLQ | R$ 40,98 / R$ 84,34 |
+| Investimento em mídia | R$ 37.651 |
+| Leads (pessoas distintas) | 929 |
+| MQL (perfil A ou B) | 455 — 49,0% da base |
+| Oportunidades abertas | 115 |
+| Propostas | 46 |
+| CPL / CPLQ | R$ 40,53 / R$ 82,75 |
 
 **Financeiro**
 
 | | |
 |---|---|
 | Pipeline gerado | R$ 637.713 |
-| Custo por R$ 1 de pipeline | R$ 0,06 — cada real investido gera R$ 17,50 de pipeline |
-| Receita influenciada | R$ 18.577 (2 contratos) |
-| CAC de marketing | R$ 18.217 |
-| CAC projetado | R$ 843 |
-| LTV : CAC projetado | 1,6x |
-| Payback projetado | 7,4 meses |
-| ROI financeiro | −49% |
+| Custo por R$ 1 de pipeline | R$ 0,06 — cada real investido gera R$ 16,94 de pipeline |
+| Receita influenciada | R$ 104.234 (8 contratos, MRR R$ 8.018/mês) |
+| CAC mídia | R$ 4.706 |
+| CAC projetado | R$ 827 |
+| LTV : CAC projetado | 2,5x |
+| Payback projetado | 5,2 meses |
+| ROI financeiro | +177% · ROAS sobre mídia 2,8x |
+
+**Contratos atribuídos**
+
+Os 8 contratos que formam a receita influenciada estão listados na aba **Resultado comercial**,
+no bloco *Contratos atribuídos*:
+
+| Condomínio | Mensalidade | Contrato (13 meses) | Fechamento | Atribuição |
+|---|---|---|---|---|
+| Reserva Mapendi | R$ 2.600 | R$ 33.800 | data não informada | Possível |
+| Madelon | R$ 1.200 | R$ 15.600 | data não informada | Marketing |
+| Chateau de Jocelyn | R$ 867 | R$ 11.271 | data não informada | Marketing |
+| Verde Mar | R$ 827 | R$ 10.751 | data não informada | Marketing |
+| Winston Churchill | R$ 697 | R$ 9.061 | 01/05/2026 | Confirmado |
+| Bartolomeu Bueno | R$ 680 | R$ 8.840 | 01/05/2026 | Confirmado |
+| Rio Pará | R$ 597 | R$ 7.761 | 09/02/2026 | Marketing |
+| Nayara | R$ 550 | R$ 7.150 | 15/04/2026 | Marketing |
+| **Total** | **R$ 8.018/mês** | **R$ 104.234** | | |
+
+Quatro contratos entraram como lead em 2025 e fecharam em 2026, sem data exata registrada. O painel
+os posiciona em 01/01/2026 e os marca como *data não informada* — por isso eles caem na safra madura
+e elevam o ROI dessa safra. Assim que as datas forem registradas na planilha comercial, basta
+atualizá-las na base de contratos e o número se corrige sozinho.
 
 **As duas safras**
 
-| | Safra madura (01/01 a 10/02) | Safra em construção (11/02 a 21/08) |
+| | Safra madura (01/01 a 17/02) | Safra em construção (18/02 a 28/08) |
 |---|---|---|
-| Leads | 87 | 802 |
-| MQL | 50 | 382 |
-| Propostas | 11 | 33 |
-| Contratos | 1 | — |
-| Investimento | R$ 3.136 | R$ 33.297 |
-| Resultado | ROI +264% | Pipeline de R$ 327.455, matura até 01/03/2027 |
+| Leads | 88 | 841 |
+| MQL | 51 | 404 |
+| Propostas | 11 | 35 |
+| Contratos | 5 | — |
+| Investimento | R$ 4.422 | R$ 33.229 |
+| Resultado | ROI +1.691% (com os 4 contratos sem data) | Pipeline de R$ 327.455, matura até 08/03/2027 |
 
 **O que esses números dizem**
 
-- A geração de demanda funciona: 889 leads e 432 qualificados a um custo baixo, com a meta mensal de
+- A geração de demanda funciona: 929 leads e 455 qualificados a um custo baixo, com a meta mensal de
   MQL sendo superada.
-- O gargalo está entre a qualificação e a oferta: **apenas 9,8% dos MQL viraram proposta**.
-- A taxa de aceite de 22,7% indica que boa parte dos leads qualificados pelo marketing ainda não é
+- O gargalo está entre a qualificação e a oferta: **apenas 10,1% dos MQL viraram proposta**.
+- A taxa de aceite de 25,3% indica que boa parte dos leads qualificados pelo marketing ainda não é
   trabalhada pelo comercial.
-- A safra madura, a única com leitura definitiva, fechou **positiva** — mas com 87 leads e 1
-  contrato, é amostra pequena demais para conclusão firme.
-- O ticket praticado nas propostas (R$ 1.694/mês) é bem menor que a premissa de unit economics
-  (R$ 2.000/mês), e o dos contratos fechados menor ainda (R$ 715/mês). É esse número, não o da
-  premissa, que sustenta o CAC.
+- Com os 8 contratos atribuídos, a operação passou a ser **financeiramente positiva** já no
+  realizado: R$ 104.234 de receita contra R$ 37.651 de mídia. A ressalva é a das datas de fechamento
+  faltantes, que distorcem a leitura por safra.
+- O ticket praticado nos contratos fechados (R$ 1.002/mês) segue abaixo da premissa de unit
+  economics (R$ 2.000/mês). É esse número, não o da premissa, que sustenta o LTV e o CAC.
 
 ---
 

@@ -7,8 +7,8 @@ equipe de Marketing. Arquivo único em HTML, funciona offline, sem instalação 
 |---|---|
 | **Arquivo** | `KPI_Protest.html` |
 | **Versão online** | https://claude.ai/code/artifact/f22fa973-b15c-40ad-8f31-479e16b3b179 |
-| **Período coberto** | 01/01/2026 a 28/08/2026 |
-| **Dados atualizados em** | 28/08/2026 |
+| **Período coberto** | 01/01/2026 a 03/09/2026 |
+| **Dados atualizados em** | 03/09/2026 |
 | **Feito por** | UM_digital |
 
 ---
@@ -293,7 +293,7 @@ cobre todo o período. O painel sinaliza as duas janelas.
 
 ---
 
-## 12. Situação atual — 01/01/2026 a 28/08/2026
+## 12. Situação atual — 01/01/2026 a 03/09/2026
 
 Retrato do momento em que este documento foi escrito, sem os custos de agência e ferramentas.
 
@@ -301,25 +301,25 @@ Retrato do momento em que este documento foi escrito, sem os custos de agência 
 
 | | |
 |---|---|
-| Investimento em mídia | R$ 37.651 |
-| Leads (pessoas distintas) | 929 |
-| MQL (perfil A ou B) | 455 — 49,0% da base |
-| Oportunidades abertas | 115 |
+| Investimento em mídia | R$ 38.835 |
+| Leads (pessoas distintas) | 978 |
+| MQL (perfil A ou B) | 478 — 48,9% da base |
+| Oportunidades abertas | 123 |
 | Propostas | 46 |
-| CPL / CPLQ | R$ 40,53 / R$ 82,75 |
+| CPL / CPLQ | R$ 39,71 / R$ 81,25 |
 
 **Financeiro**
 
 | | |
 |---|---|
 | Pipeline gerado | R$ 637.713 |
-| Custo por R$ 1 de pipeline | R$ 0,06 — cada real investido gera R$ 16,94 de pipeline |
+| Custo por R$ 1 de pipeline | R$ 0,06 — cada real investido gera R$ 16,42 de pipeline |
 | Receita influenciada | R$ 104.234 (8 contratos, MRR R$ 8.018/mês) |
-| CAC mídia | R$ 4.706 |
-| CAC projetado | R$ 827 |
-| LTV : CAC projetado | 2,5x |
-| Payback projetado | 5,2 meses |
-| ROI financeiro | +177% · ROAS sobre mídia 2,8x |
+| CAC mídia | R$ 4.854 |
+| CAC projetado | R$ 809 |
+| LTV : CAC projetado | 2,6x |
+| Payback projetado | 5,1 meses |
+| ROI financeiro | +168% · ROAS sobre mídia 2,7x |
 
 **Contratos atribuídos**
 
@@ -345,24 +345,24 @@ atualizá-las na base de contratos e o número se corrige sozinho.
 
 **As duas safras**
 
-| | Safra madura (01/01 a 17/02) | Safra em construção (18/02 a 28/08) |
+| | Safra madura (01/01 a 23/02) | Safra em construção (24/02 a 03/09) |
 |---|---|---|
-| Leads | 88 | 841 |
-| MQL | 51 | 404 |
-| Propostas | 11 | 35 |
+| Leads | 94 | 884 |
+| MQL | 55 | 423 |
+| Propostas | 12 | 34 |
 | Contratos | 5 | — |
-| Investimento | R$ 4.422 | R$ 33.229 |
-| Resultado | ROI +1.691% (com os 4 contratos sem data) | Pipeline de R$ 327.455, matura até 08/03/2027 |
+| Investimento | R$ 5.524 | R$ 33.311 |
+| Resultado | ROI +1.333% (com os 4 contratos sem data) | Pipeline de R$ 318.875, matura até 14/03/2027 |
 
 **O que esses números dizem**
 
-- A geração de demanda funciona: 929 leads e 455 qualificados a um custo baixo, com a meta mensal de
+- A geração de demanda funciona: 978 leads e 478 qualificados a um custo baixo, com a meta mensal de
   MQL sendo superada.
-- O gargalo está entre a qualificação e a oferta: **apenas 10,1% dos MQL viraram proposta**.
-- A taxa de aceite de 25,3% indica que boa parte dos leads qualificados pelo marketing ainda não é
+- O gargalo está entre a qualificação e a oferta: **apenas 9,6% dos MQL viraram proposta**.
+- A taxa de aceite de 25,7% indica que boa parte dos leads qualificados pelo marketing ainda não é
   trabalhada pelo comercial.
 - Com os 8 contratos atribuídos, a operação passou a ser **financeiramente positiva** já no
-  realizado: R$ 104.234 de receita contra R$ 37.651 de mídia. A ressalva é a das datas de fechamento
+  realizado: R$ 104.234 de receita contra R$ 38.835 de mídia. A ressalva é a das datas de fechamento
   faltantes, que distorcem a leitura por safra.
 - O ticket praticado nos contratos fechados (R$ 1.002/mês) segue abaixo da premissa de unit
   economics (R$ 2.000/mês). É esse número, não o da premissa, que sustenta o LTV e o CAC.
